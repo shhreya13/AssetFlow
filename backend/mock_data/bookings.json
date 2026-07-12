@@ -1,0 +1,9 @@
+[
+  {
+    "resource": "Conference Room A",
+    "bookedBy": "Raj",
+    "start": "09:00",
+    "end": "10:00",
+    "status": "Upcoming"
+  }
+]

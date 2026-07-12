@@ -1,0 +1,18 @@
+[
+  {
+    "assetTag": "AF-0001",
+    "name": "Dell Latitude 7420",
+    "category": "Electronics",
+    "status": "Available",
+    "condition": "Good",
+    "location": "IT Room"
+  },
+  {
+    "assetTag": "AF-0002",
+    "name": "Projector Epson",
+    "category": "Electronics",
+    "status": "Allocated",
+    "condition": "Excellent",
+    "location": "Meeting Room"
+  }
+]

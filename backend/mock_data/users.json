@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",
+    "email": "admin@assetflow.com",
+    "role": "Admin"
+  },
+  {
+    "id": 2,
+    "name": "Priya",
+    "email": "priya@assetflow.com",
+    "role": "Employee"
+  },
+  {
+    "id": 3,
+    "name": "Raj",
+    "email": "raj@assetflow.com",
+    "role": "Asset Manager"
+  }
+]
