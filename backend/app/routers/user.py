@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
-from app.models.user import User
-from app.schemas.user import UserCreate, UserOut, LoginRequest, LoginResponse, LoginUser
+from app.models.user import User, UserRole
+from app.schemas.user import UserCreate, UserOut, LoginRequest, LoginResponse, LoginUser, PromoteRequest
 from app.dependencies import hash_password, verify_password, create_access_token, require_admin
 
 router = APIRouter(prefix="/users", tags=["Users"])
@@ -11,6 +11,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
 def register_user(payload: UserCreate, db: Session = Depends(get_db)):
+    """Signup always creates an Employee account. No self-assigned roles."""
     if db.query(User).filter(User.email == payload.email).first():
         raise HTTPException(status_code=400, detail="Email already registered")
 
@@ -18,7 +19,7 @@ def register_user(payload: UserCreate, db: Session = Depends(get_db)):
         full_name=payload.full_name,
         email=payload.email,
         hashed_password=hash_password(payload.password),
-        role=payload.role,
+        role=UserRole.EMPLOYEE,
     )
     db.add(user)
     db.commit()
@@ -41,4 +42,19 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
 
 @router.get("/", response_model=list[UserOut], dependencies=[Depends(require_admin)])
 def list_users(db: Session = Depends(get_db)):
+    """Employee Directory (Org Setup > Tab C)."""
     return db.query(User).all()
+
+
+@router.patch("/{user_id}/role", response_model=UserOut, dependencies=[Depends(require_admin)])
+def promote_user(user_id: int, payload: PromoteRequest, db: Session = Depends(get_db)):
+    """Admin-only: promote an Employee to Department Head or Asset Manager.
+    This is the ONLY place roles are assigned, per spec — no self-elevation at signup."""
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    user.role = payload.role
+    db.commit()
+    db.refresh(user)
+    return user

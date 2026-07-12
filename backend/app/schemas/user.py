@@ -10,7 +10,13 @@ class UserCreate(BaseModel):
     full_name: str
     email: EmailStr
     password: str
-    role: UserRole = UserRole.EMPLOYEE
+    # No role field: per spec, signup always creates an Employee account.
+    # Promotion to Department Head / Asset Manager happens only via the
+    # admin-only /users/{id}/role endpoint (Organization Setup > Employee Directory).
+
+
+class PromoteRequest(BaseModel):
+    role: UserRole
 
 
 class UserOut(BaseModel):

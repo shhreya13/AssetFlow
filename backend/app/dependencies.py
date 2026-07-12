@@ -89,6 +89,8 @@ def require_role(*allowed_roles: UserRole):
 
 
 # Drop these straight into any existing router, e.g.:
-#   @router.post("/", dependencies=[Depends(require_manager)])
+#   @router.post("/", dependencies=[Depends(require_asset_manager)])
 require_admin = require_role(UserRole.ADMIN)
-require_manager = require_role(UserRole.ADMIN, UserRole.MANAGER)
+require_asset_manager = require_role(UserRole.ADMIN, UserRole.ASSET_MANAGER)
+require_department_head = require_role(UserRole.ADMIN, UserRole.DEPARTMENT_HEAD)
+require_staff = require_role(UserRole.ADMIN, UserRole.ASSET_MANAGER, UserRole.DEPARTMENT_HEAD)
