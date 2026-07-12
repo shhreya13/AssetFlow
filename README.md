@@ -1,77 +1,232 @@
 # AssetFlow
 
-Enterprise Asset & Resource Management System
+## Enterprise Asset & Resource Management System
 
-## Tech Stack
+AssetFlow is a centralized ERP platform designed to simplify how organizations register, allocate, monitor, and maintain physical assets and shared resources.
 
-Frontend
-- React
-- Tailwind CSS
+The system replaces manual spreadsheets and paper-based tracking with a secure, role-based web application that provides complete visibility into asset lifecycles, resource bookings, maintenance workflows, audits, and operational analytics.
 
-Backend
-- FastAPI
-- SQLAlchemy
-- SQLite
+---
 
-## Team
+## Problem Statement
 
-- Navya - Backend
-- Sujithra - Frontend
-- Darshini - UI/Testing
-- Shreya - Project Setup & Documentation
+Organizations often struggle to efficiently manage assets such as laptops, furniture, vehicles, equipment, and meeting rooms due to fragmented tracking systems.
 
-## Folder Structure
+AssetFlow solves this by providing:
 
-frontend/
-backend/
-assets/
+- Centralized asset management
+- Role-based workflows
+- Resource booking with conflict prevention
+- Asset allocation and transfer management
+- Maintenance approval workflow
+- Asset audit management
+- Notifications and activity logs
+- Operational dashboards and analytics
+
+---
 
 ## Features
 
-- Authentication
-- Dashboard
-- Asset Management
-- Asset Allocation
-- Resource Booking
-- Maintenance Workflow
-- Audit Management
-- Reports & Analytics
-- Notifications
+### Authentication
+- Secure Login
+- Employee Signup
+- Forgot Password
+- Role-Based Access Control (RBAC)
 
-# Team Workflow
+### Dashboard
+- Assets Available
+- Assets Allocated
+- Active Bookings
+- Maintenance Today
+- Pending Transfers
+- Upcoming & Overdue Returns
 
-## Branches
+### Organization Setup
+- Department Management
+- Asset Categories
+- Employee Directory
+- Role Assignment
 
-- main
-- navya-backend
-- sujithra-frontend
-- darshini-ui
+### Asset Management
+- Register Assets
+- Asset Directory
+- QR/Asset Tag Search
+- Asset Lifecycle Tracking
+- Asset History
 
-## Git Rules
+### Asset Allocation
+- Allocate Assets
+- Transfer Requests
+- Return Workflow
+- Conflict Detection
+- Overdue Return Tracking
 
-- Never push directly to main.
-- Work only on your own branch.
-- Pull latest changes before pushing.
-- Create a Pull Request before merging.
+### Resource Booking
+- Calendar View
+- Slot Booking
+- Overlap Validation
+- Booking Status Tracking
 
-## Responsibilities
+### Maintenance
+- Raise Maintenance Request
+- Approval Workflow
+- Technician Assignment
+- Maintenance History
 
-Navya
-- Backend APIs
-- Database
-- Authentication
+### Asset Audit
+- Audit Cycle Management
+- Auditor Assignment
+- Asset Verification
+- Discrepancy Reports
 
-Sujithra
-- Frontend pages
-- Routing
-- Forms
+### Reports & Analytics
+- Asset Utilization
+- Maintenance Reports
+- Department Allocation Summary
+- Resource Booking Heatmap
+- Export Reports
 
-Dharshini
-- UI
-- Testing
-- Responsiveness
+### Notifications & Activity Logs
+- Asset Notifications
+- Booking Notifications
+- Maintenance Notifications
+- Audit Notifications
+- Complete Activity History
 
-Shreya
-- Project setup
-- Documentation
-- Mock data
+---
+
+## User Roles
+
+### Admin
+- Manage Departments
+- Manage Asset Categories
+- Employee Directory
+- Assign Roles
+- View Analytics
+
+### Asset Manager
+- Register Assets
+- Allocate Assets
+- Approve Transfers
+- Approve Maintenance
+- Manage Returns
+
+### Department Head
+- View Department Assets
+- Approve Transfers
+- Book Shared Resources
+
+### Employee
+- View Assigned Assets
+- Book Resources
+- Raise Maintenance Requests
+- Request Transfers
+- Initiate Asset Returns
+
+---
+
+## Asset Lifecycle
+
+Available
+
+↓
+
+Allocated
+
+↓
+
+Reserved
+
+↓
+
+Under Maintenance
+
+↓
+
+Available
+
+or
+
+Lost / Retired / Disposed
+
+---
+
+## Technology Stack
+
+### Frontend
+- React
+- Tailwind CSS
+
+### Backend
+- FastAPI
+- SQLAlchemy
+
+### Database
+- SQLite
+
+### Version Control
+- Git
+- GitHub
+
+---
+
+## Project Structure
+
+```
+AssetFlow/
+│
+├── frontend/
+│
+├── backend/
+│   ├── app/
+│   ├── models/
+│   ├── routes/
+│   ├── schemas/
+│   ├── database/
+│   ├── docs/
+│   └── mock_data/
+│
+├── assets/
+│
+└── README.md
+```
+
+---
+
+## Team
+
+| Member | Responsibility |
+|---------|---------------|
+| Shreya | Project Setup, Git, Documentation, Mock Data |
+| Navya | Backend Development |
+| Sujithra | Frontend Development |
+| Darshini | UI/UX, Testing & API Integration |
+
+---
+
+## Current Status
+
+- ✅ Repository Created
+- ✅ Project Structure Initialized
+- ✅ Mock Data Added
+- ✅ API Documentation Created
+- ✅ Database Schema Prepared
+- 🚧 Backend Development In Progress
+- 🚧 Frontend Development In Progress
+
+---
+
+## Future Enhancements
+
+- QR Code Asset Scanning
+- Smart Asset Recommendation
+- Predictive Maintenance
+- Email Notifications
+- PDF Report Export
+- Advanced Analytics Dashboard
+
+---
+
+## License
+
+This project is developed as part of a hackathon and is intended for educational and demonstration purposes.
